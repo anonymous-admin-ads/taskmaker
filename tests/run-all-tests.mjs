@@ -2,6 +2,17 @@ console.log('========================================================');
 console.log('TASKFLOW ENTERPRISE SUITE VERIFICATION TEST RUNNER');
 console.log('========================================================\n');
 
+// Ensure server is accessible for integration tests
+try {
+  const health = await fetch('http://localhost:4000/api/health').catch(() => null);
+  if (!health || !health.ok) {
+    await import('../server/server.js');
+    await new Promise((resolve) => setTimeout(resolve, 300));
+  }
+} catch (e) {
+  // Continue even if pre-launch throws
+}
+
 try {
   await import('./workflow.test.mjs');
   await import('./persistence-concurrency.test.mjs');

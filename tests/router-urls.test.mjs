@@ -1,5 +1,5 @@
 import assert from 'node:assert';
-import { VIEW_TO_PATH, PATH_TO_VIEW, getPathForView, getViewFromPath } from '../src/utils/router.js';
+import { VIEW_TO_PATH, PATH_TO_VIEW, getPathForView, getViewFromPath } from '../src/utils/router.ts';
 
 console.log('--- RUNNING PAGE URL & ROUTING SYNCHRONIZATION TESTS ---');
 
